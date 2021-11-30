@@ -1,0 +1,54 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath("se.transmode.gradle:gradle-docker:1.2")
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+group = 'com.spring.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+defaultTasks = ['clean', 'build']
+test {
+	useJUnitPlatform()
+}
+
+jar {
+
+	def final basename = 'myfirstdemo'
+	def final version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+apply plugin: 'docker'
+group = 'com.spring.example.myfirstdemo'
+
+task buildDocker(type: Docker, dependsOn: build) {
+	baseImage = 'openjdk:8'
+	tagVersion = '1'
+	tag = 'vponnap/b-safe-cicd-pipeline'
+	addFile {
+		from jar
+	}
+	entryPoint(['java', '-jar', '/myfirstdemo-0.0.1-SNAPSHOT.jar'])
+}
