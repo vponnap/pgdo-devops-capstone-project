@@ -30,7 +30,7 @@ public class MyuserControllerTest {
     public void getGreetings() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hellowelcometeam").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Welcome to pg devops folks and K8S team")));
+                .andExpect(content().string(equalTo("Welcome to pg devops folks and K8S and Kanha team")));
     }
     @Test
     public void getTeamDetails() throws Exception {
