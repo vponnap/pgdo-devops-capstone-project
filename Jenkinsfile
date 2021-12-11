@@ -11,7 +11,7 @@ node {
 
 	stage('Push image') {
 		withDockerRegistry([ credentialsId: "dockerHub_Id", url: "" ]) {
-		app.push("latest")
+		app.push()
 	}
 	}
 
@@ -21,6 +21,6 @@ node {
 
 	stage('Remove image') {
 		// remove docker pld images
-		sh("docker rmi ${dockerhubaccountid}/${application}:latest -f")
+		sh("docker rmi ${dockerhubaccountid}/${application}:${BUILD_NUMBER} -f")
    }
 }

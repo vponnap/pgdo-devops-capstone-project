@@ -38,5 +38,4 @@ public class MyuserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("[{\"name\":\"Venkata\",\"desc\":\"Devops\"},{\"name\":\"Vignesh\",\"desc\":\"Devops\"}]"));
     }
-
 }
