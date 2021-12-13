@@ -16,7 +16,7 @@ public class MyuserController {
 
     @GetMapping("/hellowelcometeam")
     public String getGreetings() {
-        return ( "Welcome to pg devops folks and K8S team");
+        return ( "Welcome to pg devops folks and K8S and simpli team");
     }
 
     @GetMapping("/getteamdetails")
