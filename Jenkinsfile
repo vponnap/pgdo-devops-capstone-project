@@ -19,13 +19,11 @@ node {
 	stage('Build image') {
 		app = docker.build("${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
-
 	stage('Push image') {
 		withDockerRegistry([ credentialsId: "dockerHub_Id", url: "" ]) {
 		app.push()
 	}
 	}
-
 	stage('Deploy') {
 		sh ("docker run -d -p 9095:9080 -v /var/log/:/var/log/ ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
