@@ -24,7 +24,7 @@ public class MyuserControllerTest {
     public void getNames() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hellodevopscontents").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Welcome to Dockers and K8S, Jenkins, GIT ")));
+                .andExpect(content().string(equalTo("Welcome to Dockers and K8S, Jenkins, AWS, GIT ")));
     }
     @Test
     public void getGreetings() throws Exception {
