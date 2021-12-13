@@ -9,7 +9,7 @@ node {
 	}
    stage ('Artifactory configuration') {
            // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
-           server = Artifactory.server 3.109.114.243
+           server = Artifactory.server
            rtGradle.tool = gradle-6.8 // Tool name from Jenkins configuration
            rtGradle.deployer repo: ARTIFACTORY_LOCAL_RELEASE_REPO, server: server
            rtGradle.resolver repo: ARTIFACTORY_VIRTUAL_RELEASE_REPO, server: server
