@@ -5,13 +5,11 @@ node {
 		checkout scm
 	}
 
-    stage('Build') {
-    		echo "Building the application"
-    		sh "clean build"
+    stage('Build and Test') {
+    		echo ("Building and Testing the application")
+    		sh ("./gradlew clean build")
     	}
-     stage('Test') {
-        		echo "Testing the application"
-        	}
+
 	stage('Build image') {
 		app = docker.build("${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
