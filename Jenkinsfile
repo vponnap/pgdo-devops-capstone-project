@@ -1,21 +1,14 @@
 node {
 	def application = "b-safe-cicd-pipeline"
 	def dockerhubaccountid = "vponnap"
-	def server
-    def rtGradle = Artifactory.newGradleBuild()
-    def buildInfo = Artifactory.newBuildInfo()
+
 	stage('Clone repository') {
 		checkout scm
 	}
-   stage('Gradle build and Test') {
-           buildInfo = rtGradle.run rootDir: "/Users/Shared/git/pgdo-devops-capstone-project/",
-           buildFile: '/Users/Shared/git/pgdo-devops-capstone-project/build.gradle',
-           tasks: 'clean artifactoryPublish',
-           buildInfo: buildInfo
+   stage('Build and Test') {
+          sh("./gradlew clean build test")
        }
-       stage ('Publish build info') {
-                   server.publishBuildInfo buildInfo
-               }
+
 	stage('Build image') {
 		app = docker.build("${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
 	}
