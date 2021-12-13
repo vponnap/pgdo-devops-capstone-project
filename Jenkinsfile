@@ -7,8 +7,10 @@ node {
 		checkout scm
 	}
 
-   stage('Gradle build and Test) {
-           buildInfo = rtGradle.run rootDir: "/Users/Shared/git/pgdo-devops-capstone-project/", buildFile: 'build.gradle', tasks: 'clean build test'
+   stage('Gradle build and Test') {
+           buildInfo = rtGradle.run rootDir: "/Users/Shared/git/pgdo-devops-capstone-project/",
+           buildFile: '/Users/Shared/git/pgdo-devops-capstone-project/build.gradle',
+           tasks: 'clean test build'
        }
 	stage('Build image') {
 		app = docker.build("${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
