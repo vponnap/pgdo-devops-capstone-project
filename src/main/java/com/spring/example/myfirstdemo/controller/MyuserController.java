@@ -11,12 +11,12 @@ public class MyuserController {
 
     @GetMapping("/hellodevopscontents")
     public String getNames() {
-        return ( "Welcome to Dockers and K8S, Jenkins, AWS, GIT ");
+        return ( "Welcome to Dockers and K8S, Jenkins GIT");
     }
 
     @GetMapping("/hellowelcometeam")
     public String getGreetings() {
-        return ( "Welcome to pg devops folks and K8S and simpli team");
+        return ( "Welcome to pg devops folks and K8S team");
     }
 
     @GetMapping("/getteamdetails")
