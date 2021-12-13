@@ -5,15 +5,8 @@ node {
     def rtGradle = Artifactory.newGradleBuild()
     def buildInfo = Artifactory.newBuildInfo()
 	stage('Clone repository') {
-		git url: 'https://github.com/vponnap/pgdo-devops-capstone-project.git'
+		checkout scm
 	}
-   stage ('Artifactory configuration') {
-           // Obtain an Artifactory server instance, defined in Jenkins --> Manage Jenkins --> Configure System:
-           server = Artifactory.server
-           rtGradle.tool = gradle-6.8 // Tool name from Jenkins configuration
-           rtGradle.deployer repo: ARTIFACTORY_LOCAL_RELEASE_REPO, server: server
-           rtGradle.resolver repo: ARTIFACTORY_VIRTUAL_RELEASE_REPO, server: server
-       }
    stage('Gradle build and Test') {
            buildInfo = rtGradle.run rootDir: "/Users/Shared/git/pgdo-devops-capstone-project/",
            buildFile: '/Users/Shared/git/pgdo-devops-capstone-project/build.gradle',
