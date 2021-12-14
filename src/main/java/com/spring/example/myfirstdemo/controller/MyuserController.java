@@ -14,10 +14,12 @@ public class MyuserController {
         return ( "Welcome to Dockers and K8S, Jenkins GIT");
     }
 
+
     @GetMapping("/hellowelcometeam")
     public String getGreetings() {
         return ( "Welcome to pg devops folks and K8S team");
     }
+
 
     @GetMapping("/getteamdetails")
     public List<details> getTeamDetails() {
