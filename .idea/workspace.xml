@@ -15,6 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81f364be-6884-4455-bb20-73d82ba718d6" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../.idea/git.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/spring/example/myfirstdemo/controller/MyuserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/spring/example/myfirstdemo/controller/MyuserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
