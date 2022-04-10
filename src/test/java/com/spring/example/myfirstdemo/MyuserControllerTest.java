@@ -37,5 +37,6 @@ public class MyuserControllerTest {
         mvc.perform(MockMvcRequestBuilders.get("/getteamdetails").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[{\"name\":\"Venkata\",\"desc\":\"Devops\"},{\"name\":\"Vignesh\",\"desc\":\"Devops\"}]"));
+
     }
 }
